@@ -1,3 +1,145 @@
-<html>
-<img src="https://s3.us-east-2.amazonaws.com/resume.saisidharth.com/sairesume.jpg">Sai Sidhart</img>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>About Me - Sai Sidharth Vinothkannan</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f5f8fb;
+        color: #2c3e50;
+      }
+
+      header {
+        background-color: #0a3d62;
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      }
+
+      header p {
+        margin-top: 5px;
+        font-size: 16px;
+      }
+
+      nav {
+        background-color: #1e3799;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+
+      nav a:hover {
+        background-color: #4a69bd;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 30px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        align-items: center; /* Centers image vertically with text */
+      }
+
+      .text {
+        flex: 1 1 60%;
+      }
+
+      .text h2 {
+        color: #0a3d62;
+        margin-bottom: 20px;
+      }
+
+      .text p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 16px;
+        text-align: left;
+      }
+
+      .profile-pic-rectangle {
+        flex: 1 1 35%;
+        max-width: 300px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .profile-pic-rectangle img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 4px solid #0a3d62;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .text, .profile-pic-rectangle {
+          flex: 1 1 100%;
+          max-width: 100%;
+        }
+
+        .text p {
+          text-align: justify;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Sai Sidharth Vinothkannan</h1>
+      <p>Lambert High School – Class of 2027</p>
+    </header>
+
+    <nav>
+      <a href="index.html">About Me</a>
+      <a href="education.html">Education</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="experience.html">Experience</a>
+      <a href="skills.html">Skills</a>
+      <a href="activities.html">Activities</a>
+      <a href="languages.html">Languages</a>
+    </nav>
+
+    <div class="container">
+      <div class="text">
+        <h2>About Me</h2>
+        <p>I’m Sai Sidharth Vinothkannan, a rising junior passionate about technology, innovation, and community impact. I’ve built a strong academic foundation, completing numerous AP courses and exploring fields like computer science and cybersecurity. I enjoy creating technology solutions that are not only functional but also meaningful—designed to solve real-world problems and improve lives.</p>
+
+        <p>Outside the classroom, I'm deeply engaged in extracurriculars. I play cricket at the state level, compete in chess and pickleball, and have played guitar for 8 years, earning national recognition and certifications. I'm also multilingual, fluent in Tamil, Sourashtra, and English, with a developing proficiency in French.</p>
+
+        <p>Curiosity drives me. Whether it’s participating in elections through cultural associations, creating business models at DECA, or volunteering over 150 hours in my community, I constantly seek ways to grow and contribute meaningfully. My mission is to combine creativity, logic, and empathy to make a positive difference through technology and innovation.</p>
+      </div>
+
+      <div class="profile-pic-rectangle">
+        <img src="Sai-Sidharth-Vinothkannan-Prof-pic.jpg" alt="Sai Sidharth Vinothkannan">
+      </div>
+    </div>
+
+  </body>
 </html>
