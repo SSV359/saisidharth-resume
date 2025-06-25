@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>Activities - Sai Sidharth Vinothkannan</title>
+    <meta charset="UTF-8" />
+    <title>Website Architecture - Sai Sidharth Vinothkannan</title>
     <style>
       * {
         box-sizing: border-box;
@@ -21,7 +21,7 @@
         color: white;
         padding: 30px 20px;
         text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
 
       header p {
@@ -49,28 +49,38 @@
       }
 
       .container {
-        max-width: 960px;
+        max-width: 1000px;
         margin: 30px auto;
         padding: 30px;
         background: white;
         border-radius: 12px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      .container img {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        border: 4px solid #0a3d62;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 25px;
       }
 
       h2 {
         color: #0a3d62;
         margin-bottom: 20px;
+        font-size: 28px;
       }
 
-      ul {
-        padding-left: 20px;
-        margin-top: 10px;
-      }
-
-      li {
-        margin-bottom: 12px;
-        font-size: 16px;
-        line-height: 1.6;
+      .description {
+        text-align: left;
+        font-size: 17px;
+        line-height: 1.7;
+        padding: 0 10px;
+        margin: 0 auto;
+        max-width: 900px;
       }
 
       @media (max-width: 600px) {
@@ -87,6 +97,10 @@
           padding: 20px;
           margin: 20px 10px;
         }
+
+        .description {
+          font-size: 15px;
+        }
       }
     </style>
   </head>
@@ -97,7 +111,7 @@
       <p>Lambert High School – Class of 2027</p>
     </header>
 
- <nav>
+    <nav>
       <a href="sairesume.html">About Me</a>
       <a href="education.html">Education</a>
       <a href="achievements.html">Achievements</a>
@@ -109,17 +123,16 @@
       <a href="Website_Architecture.html">Website Architecture</a>
     </nav>
 
-
     <div class="container">
-      <h2>Extracurricular Activities</h2>
-      <ul>
-        <li><strong>Cricket:</strong> Competitive state-level player with team leadership experience.</li>
-        <li><strong>Chess:</strong> Rated 800 in-person and 1100 online. Active member of school chess team.</li>
-        <li><strong>Pickleball:</strong> 3.0 DUPR competitor in youth leagues and recreational tournaments.</li>
-        <li><strong>Guitar:</strong> 8 years of playing and performing. Skilled in classical and modern styles.</li>
-        <li><strong>Music Recognition:</strong> 7-time “Superior Plus” rating from the National Federation of Music Clubs.</li>
-        <li><strong>ABRSM Certification:</strong> Completed Grade 4 guitar with practical and theoretical distinction.</li>
-      </ul>
+      <h2>Website Architecture</h2>
+      <img src="Website-Architecture.png" alt="Website Architecture Diagram" />
+
+      <div class="description">
+        <p>I designed and deployed a fully functional personal resume website using AWS and GitHub services. The site is hosted on an Amazon S3 bucket configured for static website hosting and serves HTML, CSS, and image assets.</p>
+        <p>I integrated AWS CloudFront as a content delivery network (CDN) to enable HTTPS, improve load times, and provide global caching. DNS routing is handled by AWS Route 53, which maps the custom subdomain (<strong>resume.saisidharth.com</strong>) to the CloudFront distribution.</p>
+        <p>Code for the website is version-controlled in a GitHub repository, and I implemented a CI/CD pipeline using GitHub Actions that automatically deploys updates to the S3 bucket on every push to the main branch.</p>
+        <p>This architecture demonstrates my ability to work with cloud infrastructure, automate deployments securely, and deliver scalable, production-grade web solutions.</p>
+      </div>
     </div>
 
   </body>
