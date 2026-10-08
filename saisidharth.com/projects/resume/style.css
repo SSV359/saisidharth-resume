@@ -543,13 +543,6 @@ button { cursor: pointer; }
 /* ---------- Education ---------- */
 
 .edu { display: grid; gap: 24px; }
-.edu__gpa { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 28px; }
-.edu__gpa-value {
-  font-family: var(--font-mono); font-size: clamp(4rem, 3rem + 5vw, 6rem); font-weight: 600; line-height: 0.9;
-  letter-spacing: -0.04em; color: var(--blue-600);
-}
-.edu__gpa p { font-size: 0.875rem; font-weight: 600; color: var(--ink-900); }
-.edu__gpa p span { display: block; margin-top: 2px; font-size: 0.75rem; font-weight: 300; color: var(--ink-500); }
 .edu__courses { padding: 24px; }
 .panel__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .panel__head .label-mono { display: inline-flex; align-items: center; gap: 8px; }
@@ -560,8 +553,10 @@ button { cursor: pointer; }
 @media (min-width: 560px) { .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 640px) { .edu__courses { padding: 32px; } }
 @media (min-width: 1024px) {
-  .edu { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px; }
-  .course-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* AP courses in the wide panel, dual enrollment in the narrow one */
+  .edu { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 32px; }
+  .course-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .course-grid.course-grid--single { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ---------- Projects ---------- */
@@ -578,8 +573,9 @@ button { cursor: pointer; }
 .project__media img { width: 100%; height: 100%; object-fit: cover; transition: scale 0.7s var(--ease); }
 .project:hover .project__media img { scale: 1.05; }
 .project__media--top img { object-position: top; }
-.project__media--diagram { background: #fff; }
+.project__media--diagram, .project__media--logo { background: #fff; }
 .project__media--diagram img { object-fit: contain; padding: 12px 12px 44px; }
+.project__media--logo img { object-fit: contain; padding: 14px 14px 46px; }
 /* A typographic tile for projects with no photo */
 .project__media--type {
   display: grid; place-content: center; gap: 6px; text-align: center;
@@ -687,6 +683,41 @@ button { cursor: pointer; }
 .modal__media--natural img { height: auto; object-fit: contain; padding: 8px; }
 .modal__gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: start; margin-bottom: 24px; }
 .modal__gallery--one { grid-template-columns: minmax(0, 1fr); max-width: 360px; margin-inline: auto; }
+
+/* Slideshow inside a project pop-up: swipe, use the arrows, or press the left/right keys */
+.slideshow { margin-bottom: 24px; }
+.slideshow__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin-bottom: 12px; }
+.slideshow__nav { display: flex; align-items: center; gap: 8px; }
+.slideshow__btn {
+  display: grid; place-items: center; width: 34px; height: 34px; padding: 0;
+  border: 1px solid var(--blue-200); border-radius: 8px; background: #fff; color: var(--blue-700);
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+.slideshow__btn:hover:not(:disabled) { background: var(--blue-600); border-color: var(--blue-600); color: #fff; }
+.slideshow__btn--toggle { margin-right: 4px; }
+.slideshow__btn .icon { width: 18px; height: 18px; }
+.slideshow__count { min-width: 3.2em; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; text-align: center; color: var(--ink-600); }
+.slideshow__track {
+  position: relative; display: flex; overflow-x: auto;
+  scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+  border: 1px solid var(--blue-100); border-radius: 12px; background: rgba(239, 246, 255, 0.6);
+}
+.slideshow__track::-webkit-scrollbar { display: none; }
+.slideshow__slide { flex: 0 0 100%; scroll-snap-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 14px; }
+.slideshow__zoom { display: block; max-width: 100%; padding: 0; border: 0; border-radius: 10px; background: none; cursor: zoom-in; }
+.slideshow__zoom img {
+  width: auto; max-width: 100%; height: auto; max-height: min(62vh, 600px);
+  border-radius: 10px; box-shadow: 0 10px 24px -10px rgba(30, 64, 175, 0.35);
+}
+.slideshow__caption { max-width: 34rem; font-size: 0.875rem; font-weight: 300; line-height: 1.6; text-align: center; color: var(--ink-600); }
+.slideshow__caption b { display: block; margin-bottom: 2px; font-weight: 600; color: var(--ink-950); }
+.slideshow__dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+.slideshow__dots button {
+  width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%;
+  background: var(--blue-200); transition: background 0.2s, scale 0.2s;
+}
+.slideshow__dots button:hover { background: var(--blue-400); }
+.slideshow__dots button[aria-current="true"] { background: var(--blue-600); scale: 1.3; }
 .modal__text { font-size: clamp(0.875rem, 0.84rem + 0.2vw, 1rem); font-weight: 300; line-height: 1.625; color: var(--ink-700); }
 .modal__text p + p { margin-top: 14px; }
 .modal__text strong { font-weight: 600; color: var(--ink-900); }
@@ -922,7 +953,7 @@ button { cursor: pointer; }
   .js [data-reveal] { opacity: 1 !important; translate: none !important; }
   .glossy { box-shadow: none; background: #fff; }
   h2, h3, h4 { break-after: avoid; }
-  .project, .mini, .skill, .item, .milestone-detail, .edu__gpa { break-inside: avoid; }
+  .project, .mini, .skill, .item, .milestone-detail { break-inside: avoid; }
   .section, .projects, .timeline, .skill-grid, .card-grid, .creds, .cred-grid, .edu { break-inside: auto; }
 
   .hero { padding: 0 0 10pt; overflow: visible; }
@@ -953,9 +984,8 @@ button { cursor: pointer; }
   .pullquote .icon { display: none; }
 
   .edu { display: block; }
-  .edu__gpa { flex-direction: row; align-items: baseline; justify-content: flex-start; gap: 10pt; margin-bottom: 8pt; padding: 8pt 10pt; }
   .edu__courses { padding: 10pt; }
-  .edu__gpa-value { font-size: 20pt; }
+  .edu__courses + .edu__courses { margin-top: 8pt; }
   .course-grid { grid-template-columns: repeat(4, 1fr); gap: 6pt; margin-top: 8pt; }
   .item { padding: 6pt 8pt; }
   .item__title { font-size: 8.5pt; }
